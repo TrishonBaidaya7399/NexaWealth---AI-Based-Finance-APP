@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/shared/Footer/Footer";
 import TopHeader from "@/components/shared/Header/Header";
 const inter = Inter({ subsets: ["latin"] });
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "NexaWealth",
@@ -15,14 +16,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        {/* -------------- header -------------- */}
-        <TopHeader />
-        <main className="min-h-screen">{children}</main>
-        {/* -------------- footer -------------- */}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.className}`}>
+          {/* -------------- header -------------- */}
+          <TopHeader />
+          <main className="min-h-screen mt-[70px]">{children}</main>
+          {/* -------------- footer -------------- */}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
