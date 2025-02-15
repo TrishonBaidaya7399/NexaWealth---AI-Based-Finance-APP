@@ -14,7 +14,7 @@ const copySVG = (
 );
 function Footer() {
   return (
-    <footer className="h-[70px] bg-blue-50 py-4 border-t-[1px] border-blue-600">
+    <footer className="h-[70px] bg-blue-100 py-4 border-t-[1px] border-blue-100">
       <div className="container flex flex-row items-center justify-center gap-1 text-wrap w-full mx-auto text-gray-600 ">
         {copySVG}copyright 2025 All rights reserved by Engr. Trishon Baidaya
       </div>

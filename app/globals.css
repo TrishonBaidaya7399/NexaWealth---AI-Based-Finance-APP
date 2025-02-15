@@ -78,6 +78,30 @@ body {
   .gradient-title {
     @apply gradient font-bold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
   }
+  .custom-scrollbar {
+    @apply max-h-[400px] overflow-y-auto;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  /* Dark mode support */
+  .dark .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-neutral-700;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-neutral-500;
+  }
 }
 
 .hero_image_wrapper {
@@ -90,7 +114,6 @@ body {
   will-change: transform;
 }
 
-.scrolled{
+.scrolled {
   transform: rotateX(0deg) scale(1) translateY(40px);
-  
 }

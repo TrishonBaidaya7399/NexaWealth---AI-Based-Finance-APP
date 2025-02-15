@@ -21,7 +21,9 @@ export default function RootLayout({
         <body className={`${inter.className}`}>
           {/* -------------- header -------------- */}
           <TopHeader />
-          <main className="min-h-screen mt-[70px]">{children}</main>
+          <main className="min-h-screen mt-[70px] custom_scrollbar">
+            {children}
+          </main>
           {/* -------------- footer -------------- */}
           <Footer />
         </body>
