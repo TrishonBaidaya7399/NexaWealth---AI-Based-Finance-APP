@@ -25,25 +25,24 @@ function TopHeader() {
             </Link>
           </nav>
         </div>
-        <SignedIn>
-          <div className="options flex flex-row items-center gap-6 md:gap-10">
-            <Link href={"/dashboard"}>
-              <div className="flex flex-row items-center gap-1 text-xl border-b-2 border-transparent hover:text-blue-900 text-gray-500 hover:border-b-2 hover:border-blue-900  duration-300">
-                <LayoutDashboard size={18} />
-                <span className="hidden md:block">Dashboard</span>
-              </div>
-            </Link>
-            <Link href={"/transactions/create"}>
-              <div className="flex flex-row items-center gap-1 text-xl border-b-2 border-transparent hover:text-blue-900 text-gray-500 hover:border-b-2 hover:border-blue-900  duration-300">
-                <HandCoins size={18} />
-                <span className="hidden md:block">Transactions</span>
-              </div>
-            </Link>
-          </div>
-        </SignedIn>
 
-        <div className="user_dropdown">
-          {" "}
+        <div className="user_dropdown flex items-center gap-6 md:gap-10">
+          <SignedIn>
+            <div className="options flex flex-row items-center gap-6 md:gap-10">
+              <Link href={"/dashboard"}>
+                <div className="flex flex-row items-center gap-1 text-xl border-b-2 border-transparent hover:text-blue-900 text-gray-500 hover:border-b-2 hover:border-blue-900  duration-300">
+                  <LayoutDashboard size={18} />
+                  <span className="hidden md:block">Dashboard</span>
+                </div>
+              </Link>
+              <Link href={"/transactions/create"}>
+                <div className="flex flex-row items-center gap-1 text-xl border-b-2 border-transparent hover:text-blue-900 text-gray-500 hover:border-b-2 hover:border-blue-900  duration-300">
+                  <HandCoins size={18} />
+                  <span className="hidden md:block">Transactions</span>
+                </div>
+              </Link>
+            </div>
+          </SignedIn>
           <SignedOut>
             <SignInButton forceRedirectUrl={"/dashboard"}>
               <button className="group relative flex w-[115px] h-10 items-center rounded-lg border-2 border-blue-900 p-4 text-blue-900">
