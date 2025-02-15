@@ -1,4 +1,6 @@
+import FeaturedSection from "@/components/LandingPageComponents/FeaturedSection";
 import HeroSection from "@/components/LandingPageComponents/HeroSection";
+import HowItWorksSection from "@/components/LandingPageComponents/HowItWorks";
 import StatsSection from "@/components/LandingPageComponents/StatsSection";
 // import dynamic from "next/dynamic";
 
@@ -30,6 +32,8 @@ export default function Home() {
       > */}
       {/* </Suspense> */}
       <StatsSection />
+      <FeaturedSection />
+      <HowItWorksSection />
     </div>
   );
 }
