@@ -4,7 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../public/logo/logo.png";
 import { HandCoins, LayoutDashboard } from "lucide-react";
-function TopHeader() {
+import { checkUser } from "@/lib/checkUser";
+const TopHeader = async () => {
+  await checkUser();
   return (
     <div className="h-[70px] z-10 backdrop-blur-sm bg-opacity-80 fixed top-0 bg-blue-100 w-full border-b-[1px] border-blue-100">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -84,6 +86,6 @@ function TopHeader() {
       </div>
     </div>
   );
-}
+};
 
 export default TopHeader;
