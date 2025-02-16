@@ -7,7 +7,7 @@ function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="container w-screen h-[100vh - 70px] pt-12 flex items-center justify-center">
+    <div className="container w-screen h-[100vh - 70px] pt-12 flex items-center justify-center mx-auto">
       {children}
     </div>
   );
