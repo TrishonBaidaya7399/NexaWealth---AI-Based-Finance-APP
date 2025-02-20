@@ -29,7 +29,7 @@ function CreateAccountDrawer({ children }: { children: ReactNode }) {
     formState: { errors },
     setValue,
     watch,
-    reset,
+    // reset,
   } = useForm<{
     name: string;
     type: "CURRENT" | "SAVINGS";
@@ -44,7 +44,7 @@ function CreateAccountDrawer({ children }: { children: ReactNode }) {
       isDefault: false,
     },
   });
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data) => {
     console.log(data);
   };
   return (
