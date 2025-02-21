@@ -6,6 +6,8 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { accountSchema } from "@/app/lib/schema";
 import { EAccountType, ECurrency, TAccount } from "@/types/accountType";
+import { AccountType } from "@prisma/client";
+import { Decimal } from "@prisma/client/runtime/library";
 
 // interface Account {
 //   id: string;
@@ -28,7 +30,7 @@ interface SerializedAccount {
   createdAt: Date | undefined;
   updatedAt: Date | undefined;
   transactionsCount?: number;
-  currency: ECurrency;
+  currency?: ECurrency;
 }
 
 const serializeTransaction = (
@@ -94,7 +96,7 @@ export const createAccount = async (data: z.infer<typeof accountSchema>) => {
     const account = await db.account.create({
       data: {
         name: parsedData.name,
-        type: parsedData.type,
+        type: parsedData.type as EAccountType,
         balance: balanceInt,
         isDefault: shouldBeDefault,
         userId: user.id,
@@ -103,7 +105,7 @@ export const createAccount = async (data: z.infer<typeof accountSchema>) => {
 
     revalidatePath("/dashboard");
 
-    return { success: true, data: serializeTransaction(account) };
+    return { success: true, data: serializeTransaction(account as TAccount) };
   } catch (error) {
     console.error("Error creating account:", error);
     return {
@@ -140,9 +142,21 @@ export const getUserAccount = async () => {
     });
 
     const serializedAccounts: SerializedAccount[] = accounts.map(
-      (account: TAccount & { _count: { transactions: number } }) =>
+      (
+        account: { _count: { transactions: number } } & {
+          id: string;
+          createdAt: Date;
+          updatedAt: Date;
+          name: string;
+          type: AccountType;
+          balance: Decimal;
+          isDefault: boolean;
+          userId: string;
+        }
+      ) =>
         serializeTransaction({
           ...account,
+          type: account.type as EAccountType,
           transactionsCount: account._count.transactions,
         })
     );

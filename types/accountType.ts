@@ -1,3 +1,4 @@
+import { Decimal } from "@prisma/client/runtime/library";
 import { TTransaction } from "./transactionType";
 
 // types/account.ts
@@ -23,13 +24,13 @@ export type TAccount = {
   id: string;
   name: string;
   type: EAccountType;
-  balance: number;
+  balance: number | Decimal;
   isDefault: boolean;
   userId: string;
   transactions?: TTransaction[];
   createdAt: Date | undefined;
   updatedAt: Date | undefined;
-  currency: ECurrency;
+  currency?: ECurrency;
 };
 
 export type TAccountCreate = Omit<

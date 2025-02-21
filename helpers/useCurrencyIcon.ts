@@ -1,7 +1,7 @@
 import { ECurrency } from "@/types/accountType";
 import { useMemo } from "react";
 
-export const useCurrencyIcon = (currency: ECurrency) => {
+export const useCurrencyIcon = (currency: ECurrency | undefined) => {
   const currencyIcons: Record<ECurrency, string> = useMemo(
     () => ({
       [ECurrency.USD]: "$",
@@ -19,5 +19,5 @@ export const useCurrencyIcon = (currency: ECurrency) => {
     []
   );
 
-  return currencyIcons[currency] || "💰";
+  return currency ? currencyIcons[currency] || "💰" : "$";
 };
