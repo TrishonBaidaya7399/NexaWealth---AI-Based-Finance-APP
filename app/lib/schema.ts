@@ -4,4 +4,5 @@ export const accountSchema = z.object({
   type: z.enum(["CURRENT", "SAVINGS"]),
   balance: z.string().min(1, "Initial balance is required"),
   isDefault: z.boolean().default(false),
+  currency: z.string().default("USD"),
 });

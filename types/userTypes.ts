@@ -14,6 +14,8 @@ export type TUser = {
   budgets: TBudget;
   createdAt: Date;
   updatedAt: Date;
+  isDefault?: boolean;
+  balance?: number;
 };
 
 export type TUserCreate = Omit<

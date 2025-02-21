@@ -5,6 +5,7 @@ import Footer from "@/components/shared/Footer/Footer";
 import TopHeader from "@/components/shared/Header/Header";
 const inter = Inter({ subsets: ["latin"] });
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "NexaWealth",
@@ -24,6 +25,7 @@ export default function RootLayout({
           <main className={`min-h-screen mt-[70px] custom_scrollbar`}>
             {children}
           </main>
+          <Toaster richColors position="top-center"/>
           {/* -------------- footer -------------- */}
           <Footer />
         </body>
